@@ -98,14 +98,11 @@ export default function ProductCard({ product, onAddToCart }) {
         {!product.hasVariants && (
           <div className="mb-3">
             <div className="flex items-center gap-3">
-              <span
-                className="text-xl font-bold"
-                style={{ color: "var(--primary)" }}
-              >
-                {product.price.newCurrency.toLocaleString()} ل.س
+              <span className="text-xl font-bold text-primary">
+                {product.price.newCurrency} ل.س
               </span>
               <span className="text-base text-muted-foreground">
-                {product.price.oldCurrency.toLocaleString()} ل.س
+                {product.price.oldCurrency} ل.س
               </span>
             </div>
           </div>
@@ -122,20 +119,15 @@ export default function ProductCard({ product, onAddToCart }) {
                   onClick={() => setSelectedVariant(variant)}
                   className={`flex-1 py-2 px-3 rounded-lg text-sm font-semibold transition-all ${
                     selectedVariant?.id === variant.id
-                      ? "text-white"
+                      ? "text-white bg-primary"
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                   }`}
-                  style={
-                    selectedVariant?.id === variant.id
-                      ? { backgroundColor: "var(--primary)" }
-                      : {}
-                  }
                 >
-                  <div>{variant.name_ar}</div>
-                  <div className="text-xs font-bold">
+                  <div className="whitespace-nowrap">{variant.name_ar}</div>
+                  <div className="text-xs font-bold whitespace-nowrap">
                     {variant.price.newCurrency} ل.س
                   </div>
-                  <div className="text-[10px] opacity-70">
+                  <div className="text-[10px] opacity-70 whitespace-nowrap">
                     {variant.price.oldCurrency} ل.س
                   </div>
                 </button>
@@ -164,7 +156,7 @@ export default function ProductCard({ product, onAddToCart }) {
                 <p className="text-xs text-muted-foreground mb-2">
                   اختر الحجم:
                 </p>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-wrap">
                   {product.variants.map((variant) => (
                     <button
                       key={variant.id}
@@ -180,11 +172,11 @@ export default function ProductCard({ product, onAddToCart }) {
                           : {}
                       }
                     >
-                      <div>{variant.name_ar}</div>
-                      <div className="text-xs font-bold">
+                      <div className="whitespace-nowrap">{variant.name_ar}</div>
+                      <div className="text-xs font-bold whitespace-nowrap">
                         {variant.price.newCurrency} ل.س
                       </div>
-                      <div className="text-[10px] opacity-70">
+                      <div className="text-[10px] opacity-70 whitespace-nowrap">
                         {variant.price.oldCurrency} ل.س
                       </div>
                     </button>
