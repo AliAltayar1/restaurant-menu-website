@@ -2,6 +2,8 @@ import Link from "next/link";
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const location = "نزلة العلمين مقابل شعبة التجنيد سابقاً";
+
   return (
     <footer className="bg-secondary text-white mt-12 py-8 border-t border-border">
       <div className="container-padding">
@@ -52,8 +54,10 @@ export default function Footer() {
               <p className="" dir="ltr">
                 013 253 55 11
               </p>
-              <p>📧 info@thehook.sy</p>
-              <p>📍 الصابونية - جانب التجنيد القديم</p>
+              <a href="mailto:hookt1370@gmail.com" className="mb-1 block">
+                hookt1370@gmail.com
+              </a>
+              <p>📍{location}</p>
             </div>
           </div>
         </div>

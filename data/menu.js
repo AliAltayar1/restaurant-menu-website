@@ -47,16 +47,16 @@ export const menuItems = [
         id: "1a",
         name_ar: "نص فروج",
         price: {
-          oldCurrency: 80000,
-          newCurrency: 800,
+          oldCurrency: 60000,
+          newCurrency: 600,
         },
       },
       {
         id: "1b",
         name_ar: "فروج كامل",
         price: {
-          oldCurrency: 100000,
-          newCurrency: 1000,
+          oldCurrency: 120000,
+          newCurrency: 1200,
         },
       },
     ],
@@ -83,8 +83,8 @@ export const menuItems = [
         id: "2b",
         name_ar: "فروج كامل",
         price: {
-          oldCurrency: 120000,
-          newCurrency: 1200,
+          oldCurrency: 130000,
+          newCurrency: 1300,
         },
       },
     ],
@@ -183,8 +183,8 @@ export const menuItems = [
     description_ar: "سندويش شاورما فرنسي",
     category: "شاورما",
     price: {
-      oldCurrency: 55000,
-      newCurrency: 550,
+      oldCurrency: 35000,
+      newCurrency: 350,
     },
     imageUrl: "shawrmaFR.jpg",
     isBestSeller: false,
@@ -251,16 +251,16 @@ export const menuItems = [
         id: "9b",
         name_ar: "نص كيلو",
         price: {
-          oldCurrency: 70000,
-          newCurrency: 700,
+          oldCurrency: 60000,
+          newCurrency: 600,
         },
       },
       {
         id: "16c",
         name_ar: "كيلو",
         price: {
-          oldCurrency: 140000,
-          newCurrency: 1400,
+          oldCurrency: 120000,
+          newCurrency: 1200,
         },
       },
     ],
@@ -384,13 +384,28 @@ export const menuItems = [
     name_ar: "سندويش شاورما لحم ",
     description_ar: "يوم الإثنين فقط",
     category: "شاورما",
-    price: {
-      oldCurrency: 40000,
-      newCurrency: 400,
-    },
     imageUrl: "shawrmaMEAT.jpg",
     isBestSeller: false,
     spicyLevel: 0,
+    hasVariants: true,
+    variants: [
+      {
+        id: "17a",
+        name_ar: "سندويش شاورما لحم عادي",
+        price: {
+          oldCurrency: 40000,
+          newCurrency: 400,
+        },
+      },
+      {
+        id: "17b",
+        name_ar: "سندويش شاورما لحم اكسترا",
+        price: {
+          oldCurrency: 55000,
+          newCurrency: 550,
+        },
+      },
+    ],
   },
   {
     id: 18,
@@ -497,26 +512,18 @@ export const menuItems = [
     variants: [
       {
         id: "24a",
-        name_ar: "ربع كيلو",
+        name_ar: "نص كيلو",
         price: {
-          oldCurrency: 45000,
-          newCurrency: 450,
+          oldCurrency: 20000,
+          newCurrency: 200,
         },
       },
       {
         id: "24b",
-        name_ar: "نص كيلو",
-        price: {
-          oldCurrency: 70000,
-          newCurrency: 700,
-        },
-      },
-      {
-        id: "24c",
         name_ar: "كيلو",
         price: {
-          oldCurrency: 140000,
-          newCurrency: 1400,
+          oldCurrency: 40000,
+          newCurrency: 400,
         },
       },
     ],
@@ -553,8 +560,8 @@ export const menuItems = [
     description_ar: "علبة سلطة روسية",
     category: "مقبلات",
     price: {
-      oldCurrency: 2500,
-      newCurrency: 25,
+      oldCurrency: 4000,
+      newCurrency: 40,
     },
     imageUrl: "russiaSALAD.jpg",
     isBestSeller: false,
@@ -649,6 +656,19 @@ export const menuItems = [
         },
       },
     ],
+  },
+  {
+    id: 311,
+    name_ar: "علبة صوص شيدر",
+    description_ar: "علبة صوص شيدر",
+    category: "مقبلات",
+    price: {
+      oldCurrency: 5000,
+      newCurrency: 50,
+    },
+    imageUrl: "cheedr.jpg",
+    isBestSeller: false,
+    spicyLevel: 0,
   },
   {
     id: 32,
@@ -916,8 +936,8 @@ export const menuItems = [
     description_ar: "قطع دجاج مشوي مع المايونيز والجبنة حسب الرغبة",
     category: "سندويش",
     price: {
-      oldCurrency: 35000,
-      newCurrency: 350,
+      oldCurrency: 30000,
+      newCurrency: 300,
     },
     imageUrl: "sandwichSHEESH.jpg",
     isBestSeller: false,
@@ -964,10 +984,26 @@ export const menuItems = [
       },
       {
         id: "52c",
-        name_ar: "سندويش بطاطا تشيز",
+        name_ar: "سندويش بطاطا صمون",
+        price: {
+          oldCurrency: 18000,
+          newCurrency: 180,
+        },
+      },
+      {
+        id: "52d",
+        name_ar: "سندويش بطاطا تشيز خبز",
         price: {
           oldCurrency: 20000,
           newCurrency: 200,
+        },
+      },
+      {
+        id: "52e",
+        name_ar: "سندويش بطاطا تشيز صمون",
+        price: {
+          oldCurrency: 23000,
+          newCurrency: 230,
         },
       },
     ],
@@ -1153,8 +1189,8 @@ export const menuItems = [
         id: "59b",
         name_ar: "وجبة زنجر 8 قطع",
         price: {
-          oldCurrency: 75000,
-          newCurrency: 750,
+          oldCurrency: 85000,
+          newCurrency: 850,
         },
       },
     ],
@@ -1178,8 +1214,8 @@ export const menuItems = [
     description_ar: "وجبة فاهيتا ",
     category: "وجبات",
     price: {
-      oldCurrency: 58000,
-      newCurrency: 580,
+      oldCurrency: 55000,
+      newCurrency: 550,
     },
     imageUrl: "fajitaMEAL.jfif",
     isBestSeller: false,
@@ -1190,13 +1226,29 @@ export const menuItems = [
     name_ar: " وجبة شيش ",
     description_ar: "وجبة شيش ",
     category: "وجبات",
-    price: {
-      oldCurrency: 50000,
-      newCurrency: 500,
-    },
+
     imageUrl: "sheeshMEAL.jpg",
     isBestSeller: false,
     spicyLevel: 0,
+    hasVariants: true,
+    variants: [
+      {
+        id: "62a",
+        name_ar: "وجبة شيش عادي",
+        price: {
+          oldCurrency: 45000,
+          newCurrency: 450,
+        },
+      },
+      {
+        id: "62b",
+        name_ar: "وجبة شيش دبل",
+        price: {
+          oldCurrency: 50000,
+          newCurrency: 500,
+        },
+      },
+    ],
   },
   {
     id: 63,
@@ -1257,8 +1309,8 @@ export const menuItems = [
     description_ar: "6 جناحات متبلة بالتتبيلة الخاصة المميزة مع وصوصات",
     category: "وجبات",
     price: {
-      oldCurrency: 55000,
-      newCurrency: 550,
+      oldCurrency: 50000,
+      newCurrency: 500,
     },
     imageUrl: "wings.jpg",
     isBestSeller: false,

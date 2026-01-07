@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export default function LocationPage() {
+  const location = "نزلة العلمين مقابل شعبة التجنيد سابقاً";
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
@@ -19,7 +20,7 @@ export default function LocationPage() {
               الفرع الرئيسي
             </h1>
             <p className="text-white bg-primary border-primary border py-2 px-6 w-fit rounded-sm">
-              الصابونية - جانب التجنيد القديم
+              {location}
             </p>
           </div>
 
@@ -50,10 +51,7 @@ export default function LocationPage() {
                   <span className="text-2xl">📍</span>
                   <div>
                     <p className="font-semibold text-secondary">العنوان</p>
-                    <p className="text-muted-foreground">
-                      {" "}
-                      الصابونية - جانب التجنيد القديم
-                    </p>
+                    <p className="text-muted-foreground">{location}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -79,7 +77,12 @@ export default function LocationPage() {
                     <p className="font-semibold text-secondary">
                       البريد الإلكتروني
                     </p>
-                    <p className="text-muted-foreground">info@thehook.sy</p>
+                    <a
+                      href="mailto:hookt1370@gmail.com"
+                      className="text-muted-foreground"
+                    >
+                      hookt1370@gmail.com
+                    </a>
                   </div>
                 </div>
               </div>
