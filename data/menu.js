@@ -68,7 +68,7 @@ export const menuItems = [
     category: "بروستد",
     imageUrl: "broastedCHSP.jpg",
     isBestSeller: true,
-    spicyLevel: 1,
+    spicyLevel: 3,
     hasVariants: true,
     variants: [
       {
@@ -539,7 +539,7 @@ export const menuItems = [
     },
     imageUrl: "spicy.png",
     isBestSeller: false,
-    spicyLevel: 0,
+    spicyLevel: 3,
   },
   {
     id: 26,
@@ -902,7 +902,7 @@ export const menuItems = [
     },
     imageUrl: "sandwichSPICY.png",
     isBestSeller: false,
-    spicyLevel: 0,
+    spicyLevel: 3,
   },
   {
     id: 49,
@@ -1274,7 +1274,7 @@ export const menuItems = [
     },
     imageUrl: "spicyMEAL.jpg",
     isBestSeller: false,
-    spicyLevel: 0,
+    spicyLevel: 3,
   },
   {
     id: 64,

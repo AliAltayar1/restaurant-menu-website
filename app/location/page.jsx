@@ -93,7 +93,7 @@ export default function LocationPage() {
                     <p className="font-semibold text-secondary mb-1">
                       مواقع التواصل الاجتماعي
                     </p>
-                    <div className="flex gap-5">
+                    <div className="flex gap-x-5  flex-wrap">
                       <div className="flex items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +113,7 @@ export default function LocationPage() {
                           ></path>
                         </svg>
                         <Link
-                          className="font-semibold text-muted-foreground"
+                          className="font-semibold text-muted-foreground whitespace-nowrap"
                           href="https://www.facebook.com/profile.php?id=61584305695432"
                           target="_blank"
                         >
@@ -198,10 +198,10 @@ export default function LocationPage() {
                             <path
                               fill="none"
                               stroke="#fff"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-miterlimit="10"
-                              stroke-width="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeMiterlimit="10"
+                              strokeWidth="2"
                               d="M30,11H18c-3.9,0-7,3.1-7,7v12c0,3.9,3.1,7,7,7h12c3.9,0,7-3.1,7-7V18C37,14.1,33.9,11,30,11z"
                             ></path>
                             <circle cx="31" cy="16" r="1" fill="#fff"></circle>
@@ -213,20 +213,20 @@ export default function LocationPage() {
                               r="6"
                               fill="none"
                               stroke="#fff"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-miterlimit="10"
-                              stroke-width="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeMiterlimit="10"
+                              strokeWidth="2"
                             ></circle>
                           </g>
                         </svg>
                         <Link
-                          className="font-semibold text-muted-foreground"
+                          className="font-semibold text-muted-foreground whitespace-nowrap"
                           href="https://www.instagram.com/thehookresturant/"
                           target="_blank"
                           dir="ltr"
                         >
-                          @THEHOOKRESTURANT
+                          THEHOOKRESTURANT
                         </Link>
                       </div>
                     </div>

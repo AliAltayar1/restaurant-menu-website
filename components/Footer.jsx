@@ -22,19 +22,19 @@ export default function Footer() {
             <nav className="flex flex-col gap-2">
               <Link
                 href="/"
-                className="text-sm text-gray-300 hover:text-white transition-colors"
+                className="text-sm text-gray-300 hover:text-white transition-colors w-fit"
               >
                 الرئيسية
               </Link>
               <Link
                 href="/menu"
-                className="text-sm text-gray-300 hover:text-white transition-colors"
+                className="text-sm text-gray-300 hover:text-white transition-colors w-fit"
               >
                 القائمة
               </Link>
               <Link
                 href="/location"
-                className="text-sm text-gray-300 hover:text-white transition-colors"
+                className="text-sm text-gray-300 hover:text-white transition-colors w-fit"
               >
                 الموقع
               </Link>
