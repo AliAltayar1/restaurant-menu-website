@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 export default function ProductCard({ product, onAddToCart }) {
   const [quantity, setQuantity] = useState(1);
@@ -57,27 +58,44 @@ export default function ProductCard({ product, onAddToCart }) {
   return (
     <div className="bg-card rounded-lg card-shadow hover:card-shadow-hover transition-all overflow-hidden">
       {/* Product Image */}
-      <div className="relative h-48 w-full bg-muted">
-        <Image
-          src={product.imageUrl || "/placeholder.svg"}
-          alt={product.name_ar}
-          fill
-          className="object-cover"
-        />
+      <div className="relative h-48 w-full overflow-hidden rounded-lg">
+        <TransformWrapper
+          initialScale={1}
+          minScale={1}
+          maxScale={3}
+          wheel={{ disabled: true }} // منع زوم الماوس (مريح للموبايل)
+          doubleClick={{ disabled: true }}
+          pinch={{ step: 5 }}
+          panning={{ disabled: true }}
+        >
+          <TransformComponent
+            wrapperStyle={{
+              width: "100%",
+              height: "100%",
+            }}
+            contentStyle={{
+              width: "100%",
+              height: "100%",
+            }}
+          >
+            <Image
+              src={product.imageUrl || "/placeholder.svg"}
+              alt={product.name_ar}
+              fill
+              className="object-contain cursor-zoom-in"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
+          </TransformComponent>
+        </TransformWrapper>
 
         {/* Badges */}
-        <div className="absolute top-2 right-2 flex flex-col gap-2">
+        <div className="absolute top-2 right-2 flex flex-col gap-2 z-10">
           {product.isBestSeller && (
-            <span
-              className="bg-[var(--accent)] text-[var(--accent-foreground)] text-xs font-semibold px-2 py-1 rounded"
-              style={{
-                backgroundColor: "var(--accent)",
-                color: "var(--accent-foreground)",
-              }}
-            >
+            <span className="bg-[var(--accent)] text-[var(--accent-foreground)] text-xs font-semibold px-2 py-1 rounded">
               الأكثر طلباً
             </span>
           )}
+
           {product.spicyLevel > 0 && (
             <span className="bg-white/90 text-xs font-semibold px-2 py-1 rounded flex items-center gap-1">
               حار {spicyIcons(product.spicyLevel)}

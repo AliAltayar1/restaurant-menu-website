@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { carouselImages } from "@/data/menu";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -83,16 +84,40 @@ export default function Carousel() {
           <div
             key={image.id}
             className={`absolute inset-0 transition-opacity duration-500 ${
-              index === currentIndex ? "opacity-100" : "opacity-0"
+              index === currentIndex
+                ? "opacity-100 pointer-events-auto"
+                : "opacity-0 pointer-events-none"
             }`}
           >
-            <Image
-              src={image.url || "/placeholder.svg"}
-              alt={image.alt}
-              fill
-              className="object-contain"
-              priority={index === 0}
-            />
+            <TransformWrapper
+              initialScale={1}
+              minScale={1}
+              maxScale={3}
+              doubleClick={{ disabled: true }} // نوقف الافتراضي
+              panning={{ disabled: true }}
+            >
+              {({ zoomIn, zoomOut, state }) => (
+                <TransformComponent
+                  onDoubleClick={() => {
+                    if (state.scale > 1) {
+                      zoomOut();
+                    } else {
+                      zoomIn();
+                    }
+                  }}
+                  wrapperStyle={{ width: "100%", height: "100%" }}
+                  contentStyle={{ width: "100%", height: "100%" }}
+                >
+                  <Image
+                    src={image.url || "/placeholder.svg"}
+                    alt={image.alt}
+                    fill
+                    className="object-contain cursor-zoom-in"
+                    priority={index === 0}
+                  />
+                </TransformComponent>
+              )}
+            </TransformWrapper>
           </div>
         ))}
       </div>
