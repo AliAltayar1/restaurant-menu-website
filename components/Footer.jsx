@@ -63,8 +63,8 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-6 text-center">
-          <p className="text-sm text-gray-400">
-            © {year} THE HOOK. جميع الحقوق محفوظة
+          <p className="text-sm text-gray-400" dir="rtl">
+            © {year} <span dir="ltr">THE HOOK</span>. جميع الحقوق محفوظة
           </p>
         </div>
       </div>
