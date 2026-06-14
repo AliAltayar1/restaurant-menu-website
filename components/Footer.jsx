@@ -70,7 +70,7 @@ export default function Footer() {
             created by{" "}
             <Link
               href="https://appstech.vercel.app/"
-              className="text-blue-400 hover:underline "
+              className="text-orange-400 hover:underline"
             >
               appstech
             </Link>
