@@ -1,78 +1,91 @@
-"use client"
+"use client";
 
-import { useEffect } from "react"
+import { useEffect } from "react";
 
-export default function OrderSummaryModal({ isOpen, onClose, cart, totalPrice }) {
+export default function OrderSummaryModal({
+  isOpen,
+  onClose,
+  cart,
+  totalPrice,
+}) {
   // Prevent body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden"
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "unset"
+      document.body.style.overflow = "unset";
     }
     return () => {
-      document.body.style.overflow = "unset"
-    }
-  }, [isOpen])
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   const getCurrentDateTime = () => {
-    const now = new Date()
+    const now = new Date();
     const date = now.toLocaleDateString("ar-SY", {
       year: "numeric",
       month: "long",
       day: "numeric",
-    })
+    });
     const time = now.toLocaleTimeString("ar-SY", {
       hour: "2-digit",
       minute: "2-digit",
-    })
-    return `${date} - ${time}`
-  }
+    });
+    return `${date} - ${time}`;
+  };
 
   const generateOrderSummary = () => {
-    let summary = "🍽️ ملخص الطلب - THE HOOK\n"
-    summary += "━━━━━━━━━━━━━━━━━━━━\n\n"
-    summary += `📅 ${getCurrentDateTime()}\n\n`
-    summary += "📋 الأصناف:\n"
-    summary += "━━━━━━━━━━━━━━━━━━━━\n\n"
+    let summary = "🍽️ ملخص الطلب - THE HOOK\n";
+    summary += "━━━━━━━━━━━━━━━━━━━━\n\n";
+    summary += `📅 ${getCurrentDateTime()}\n\n`;
+    summary += "📋 الأصناف:\n";
+    summary += "━━━━━━━━━━━━━━━━━━━━\n\n";
 
     cart.forEach((item, index) => {
-      const itemName = item.hasVariants && item.variantName ? `${item.name_ar} (${item.variantName})` : item.name_ar
-      const itemPrice = item.hasVariants ? item.price.newCurrency : item.price.newCurrency
+      const itemName =
+        item.hasVariants && item.variantName
+          ? `${item.name_ar} (${item.variantName})`
+          : item.name_ar;
+      const itemPrice = item.hasVariants
+        ? item.price.newCurrency
+        : item.price.newCurrency;
 
-      summary += `${index + 1}. ${itemName}\n`
-      summary += `   الكمية: ${item.quantity}\n`
-      summary += `   السعر: ${(itemPrice * item.quantity).toLocaleString()} ل.س\n`
+      summary += `${index + 1}. ${itemName}\n`;
+      summary += `   الكمية: ${item.quantity}\n`;
+      summary += `   السعر: ${(itemPrice * item.quantity).toLocaleString()} ل.س\n`;
       if (item.notes) {
-        summary += `   ملاحظات: ${item.notes}\n`
+        summary += `   ملاحظات: ${item.notes}\n`;
       }
-      summary += "\n"
-    })
+      summary += "\n";
+    });
 
-    summary += "━━━━━━━━━━━━━━━━━━━━\n"
-    summary += `💰 الإجمالي: ${totalPrice.toLocaleString()} ل.س\n`
-    summary += "━━━━━━━━━━━━━━━━━━━━\n"
+    summary += "━━━━━━━━━━━━━━━━━━━━\n";
+    summary += `💰 الإجمالي: ${totalPrice.toLocaleString()} ل.س\n`;
+    summary += "━━━━━━━━━━━━━━━━━━━━\n";
 
-    return summary
-  }
+    return summary;
+  };
 
   const handleCopyToClipboard = async () => {
     try {
-      const summary = generateOrderSummary()
-      await navigator.clipboard.writeText(summary)
-      alert("تم نسخ ملخص الطلب!")
+      const summary = generateOrderSummary();
+      await navigator.clipboard.writeText(summary);
+      alert("تم نسخ ملخص الطلب!");
     } catch (error) {
-      console.error("Failed to copy:", error)
-      alert("فشل نسخ الملخص. حاول مرة أخرى.")
+      console.error("Failed to copy:", error);
+      alert("فشل نسخ الملخص. حاول مرة أخرى.");
     }
-  }
+  };
 
   return (
     <>
       {/* Backdrop */}
-      <div className="fixed inset-0 bg-black/60 z-[60] transition-opacity" onClick={onClose} />
+      <div
+        className="fixed inset-0 bg-black/60 z-[60] transition-opacity"
+        onClick={onClose}
+      />
 
       {/* Modal */}
       <div className="fixed inset-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-[600px] md:max-h-[90vh] bg-white rounded-2xl z-[60] flex flex-col overflow-hidden shadow-2xl">
@@ -82,10 +95,15 @@ export default function OrderSummaryModal({ isOpen, onClose, cart, totalPrice })
           style={{ backgroundColor: "var(--light-surface)" }}
         >
           <div>
-            <h2 className="text-3xl font-bold mb-1" style={{ color: "var(--secondary)" }}>
+            <h2
+              className="text-3xl font-bold mb-1"
+              style={{ color: "var(--secondary)" }}
+            >
               ملخص الطلب
             </h2>
-            <p className="text-sm text-muted-foreground">{getCurrentDateTime()}</p>
+            <p className="text-sm text-muted-foreground">
+              {getCurrentDateTime()}
+            </p>
           </div>
           <button
             onClick={onClose}
@@ -99,14 +117,21 @@ export default function OrderSummaryModal({ isOpen, onClose, cart, totalPrice })
               stroke="currentColor"
               className="w-6 h-6"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
         </div>
 
         {/* Restaurant Info */}
         <div className="p-6 border-b border-border text-center">
-          <h1 className="text-4xl font-bold mb-2" style={{ color: "var(--primary)" }}>
+          <h1
+            className="text-4xl font-bold mb-2"
+            style={{ color: "var(--primary)" }}
+          >
             THE HOOK
           </h1>
           <p className="text-muted-foreground">مطعم ذا هوك</p>
@@ -114,62 +139,93 @@ export default function OrderSummaryModal({ isOpen, onClose, cart, totalPrice })
 
         {/* Order Items */}
         <div className="flex-1 overflow-y-auto p-6">
-          <h3 className="text-xl font-bold mb-4" style={{ color: "var(--secondary)" }}>
+          <h3
+            className="text-xl font-bold mb-4"
+            style={{ color: "var(--secondary)" }}
+          >
             الأصناف المطلوبة:
           </h3>
           <div className="space-y-4">
             {cart.map((item, index) => {
-              const itemPrice = item.hasVariants ? item.price.newCurrency : item.price.newCurrency
+              const itemPrice = item.hasVariants
+                ? item.price.newCurrency
+                : item.price.newCurrency;
 
               return (
-                <div key={`${item.id}-${index}`} className="pb-4 border-b border-border last:border-0">
+                <div
+                  key={`${item.id}-${index}`}
+                  className="pb-4 border-b border-border last:border-0"
+                >
                   <div className="flex items-start justify-between mb-2">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="font-bold text-lg" style={{ color: "var(--secondary)" }}>
+                        <span
+                          className="font-bold text-lg"
+                          style={{ color: "var(--secondary)" }}
+                        >
                           {index + 1}.
                         </span>
-                        <h4 className="font-bold text-lg" style={{ color: "var(--secondary)" }}>
+                        <h4
+                          className="font-bold text-lg"
+                          style={{ color: "var(--secondary)" }}
+                        >
                           {item.name_ar}
                           {item.hasVariants && item.variantName && (
-                            <span className="text-base font-normal text-muted-foreground"> ({item.variantName})</span>
+                            <span className="text-base font-normal text-muted-foreground">
+                              {" "}
+                              ({item.variantName})
+                            </span>
                           )}
                         </h4>
                       </div>
                       {item.notes && (
                         <p className="text-sm text-muted-foreground mr-6">
-                          <span className="font-semibold">ملاحظات:</span> {item.notes}
+                          <span className="font-semibold">ملاحظات:</span>{" "}
+                          {item.notes}
                         </p>
                       )}
                     </div>
-                    <div className="text-left">
-                      <p className="font-bold text-lg" style={{ color: "var(--primary)" }}>
+                    {/* <div className="text-left">
+                      <p
+                        className="font-bold text-lg"
+                        style={{ color: "var(--primary)" }}
+                      >
                         {(itemPrice * item.quantity).toLocaleString()} ل.س
                       </p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="mr-6">
                     <p className="text-sm text-muted-foreground">
-                      الكمية: <span className="font-semibold">{item.quantity}</span>
+                      الكمية:{" "}
+                      <span className="font-semibold">{item.quantity}</span>
                     </p>
                   </div>
                 </div>
-              )
+              );
             })}
           </div>
         </div>
 
         {/* Footer */}
-        <div className="p-6 border-t border-border space-y-4" style={{ backgroundColor: "var(--light-surface)" }}>
+        <div
+          className="p-6 border-t border-border space-y-4"
+          style={{ backgroundColor: "var(--light-surface)" }}
+        >
           {/* Total */}
-          <div className="flex items-center justify-between py-4">
-            <span className="text-2xl font-bold" style={{ color: "var(--secondary)" }}>
+          {/* <div className="flex items-center justify-between py-4">
+            <span
+              className="text-2xl font-bold"
+              style={{ color: "var(--secondary)" }}
+            >
               الإجمالي:
             </span>
-            <span className="text-3xl font-bold" style={{ color: "var(--primary)" }}>
+            <span
+              className="text-3xl font-bold"
+              style={{ color: "var(--primary)" }}
+            >
               {totalPrice.toLocaleString()} ل.س
             </span>
-          </div>
+          </div> */}
 
           {/* Copy Button */}
           <button
@@ -196,5 +252,5 @@ export default function OrderSummaryModal({ isOpen, onClose, cart, totalPrice })
         </div>
       </div>
     </>
-  )
+  );
 }

@@ -146,7 +146,7 @@ export default function CartDrawer({
                               onUpdateQuantity(
                                 item.cartItemId || item.id,
                                 item.notes,
-                                item.quantity - 1
+                                item.quantity - 1,
                               );
                             }
                           }}
@@ -180,7 +180,7 @@ export default function CartDrawer({
                             onUpdateQuantity(
                               item.cartItemId || item.id,
                               item.notes,
-                              item.quantity + 1
+                              item.quantity + 1,
                             )
                           }
                           className="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-white transition-all"
@@ -191,7 +191,7 @@ export default function CartDrawer({
                       </div>
 
                       {/* Price */}
-                      <div className="text-left">
+                      {/* <div className="text-left">
                         <p
                           className="font-bold"
                           style={{ color: "var(--primary)" }}
@@ -207,7 +207,7 @@ export default function CartDrawer({
                             : item.price.oldCurrency) * item.quantity}{" "}
                           ل.س
                         </p>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
 
@@ -257,7 +257,7 @@ export default function CartDrawer({
         {/* Footer */}
         {cart.length > 0 && (
           <div className="p-4 border-t border-border space-y-3">
-            <div className="space-y-1">
+            {/* <div className="space-y-1">
               <div className="flex items-center justify-between">
                 <span className="text-lg font-bold">الإجمالي:</span>
                 <span
@@ -275,7 +275,7 @@ export default function CartDrawer({
                   {totalOldPrice.toLocaleString()} ل.س
                 </span>
               </div>
-            </div>
+            </div> */}
 
             {/* View Order Button */}
             <p className="text-primary text-sm">

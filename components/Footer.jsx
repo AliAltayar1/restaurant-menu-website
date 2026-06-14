@@ -66,6 +66,15 @@ export default function Footer() {
           <p className="text-sm text-gray-400" dir="rtl">
             © {year} <span dir="ltr">THE HOOK</span>. جميع الحقوق محفوظة
           </p>
+          <p className="text-sm text-gray-400 mt-2" dir="rtl">
+            created by{" "}
+            <Link
+              href="https://appstech.vercel.app/"
+              className="text-blue-400 hover:underline "
+            >
+              appstech
+            </Link>
+          </p>
         </div>
       </div>
     </footer>

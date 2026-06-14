@@ -9,7 +9,7 @@ export default function ProductCard({ product, onAddToCart }) {
   const [notes, setNotes] = useState("");
   const [showDetails, setShowDetails] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(
-    product.hasVariants ? product.variants[0] : null
+    product.hasVariants ? product.variants[0] : null,
   );
 
   const handleAddToCart = () => {
@@ -113,7 +113,7 @@ export default function ProductCard({ product, onAddToCart }) {
           {product.description_ar}
         </p>
 
-        {!product.hasVariants && (
+        {/* {!product.hasVariants && (
           <div className="mb-3">
             <div className="flex items-center gap-3">
               <span className="text-xl font-bold text-primary">
@@ -124,7 +124,7 @@ export default function ProductCard({ product, onAddToCart }) {
               </span>
             </div>
           </div>
-        )}
+        )} */}
 
         {/* Variants Selection */}
         {product.hasVariants && !showDetails && (
@@ -142,12 +142,12 @@ export default function ProductCard({ product, onAddToCart }) {
                   }`}
                 >
                   <div className="whitespace-nowrap">{variant.name_ar}</div>
-                  <div className="text-xs font-bold whitespace-nowrap">
+                  {/* <div className="text-xs font-bold whitespace-nowrap">
                     {variant.price.newCurrency} ل.س
                   </div>
                   <div className="text-[10px] opacity-70 whitespace-nowrap">
                     {variant.price.oldCurrency} ل.س
-                  </div>
+                  </div> */}
                 </button>
               ))}
             </div>
@@ -191,12 +191,12 @@ export default function ProductCard({ product, onAddToCart }) {
                       }
                     >
                       <div className="whitespace-nowrap">{variant.name_ar}</div>
-                      <div className="text-xs font-bold whitespace-nowrap">
+                      {/* <div className="text-xs font-bold whitespace-nowrap">
                         {variant.price.newCurrency} ل.س
                       </div>
                       <div className="text-[10px] opacity-70 whitespace-nowrap">
                         {variant.price.oldCurrency} ل.س
-                      </div>
+                      </div> */}
                     </button>
                   ))}
                 </div>
@@ -246,7 +246,8 @@ export default function ProductCard({ product, onAddToCart }) {
               className="w-full text-white font-semibold py-2.5 rounded-lg hover:opacity-90"
               style={{ backgroundColor: "var(--primary)" }}
             >
-              أضف للسلة ({(getCurrentPrice() * quantity).toLocaleString()} ل.س)
+              أضف للسلة
+              {/* ({(getCurrentPrice() * quantity).toLocaleString()} ل.س) */}
             </button>
           </div>
         )}
